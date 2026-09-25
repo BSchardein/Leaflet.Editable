@@ -1715,7 +1715,7 @@ export class PolygonEditor extends PathEditor {
 
   vertexCanBeDeleted(vertex) {
     const parent = this.feature.parentShape(vertex.latlngs)
-    const idx = parent.includes(vertex)
+    const idx = parent?.includes(vertex) ?? 0
     if (idx > 0) return true // Holes can be totally deleted without removing the layer itself.
     return super.vertexCanBeDeleted(vertex)
   }
