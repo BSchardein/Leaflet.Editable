@@ -513,6 +513,12 @@ export class VertexMarker extends Marker {
     this.editor.editLayer.addLayer(this)
   }
 
+  _animateZoom(opt) {
+    if (this._map) {
+      super._animateZoom(opt)
+    }
+  }
+
   onAdd(map) {
     super.onAdd(map)
     this.on('drag', this.onDrag)
@@ -716,6 +722,12 @@ export class MiddleMarker extends Marker {
     this.options.icon.options.className = this.options.className
     this.editor.editLayer.addLayer(this)
     this.setVisibility()
+  }
+
+  _animateZoom(opt) {
+    if (this._map) {
+      super._animateZoom(opt)
+    }
   }
 
   createVertexIcon(options) {
