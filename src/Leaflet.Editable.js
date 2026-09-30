@@ -617,7 +617,11 @@ export class VertexMarker extends Marker {
   // 🍂method getIndex(): int
   // Get the index of the current vertex among others of the same LatLngs group.
   getIndex() {
-    return this.latlngs.indexOf(this.latlng)
+    const latlng = this.latlngs.find(ll => 
+      ll.lat === this.latlng.lat &&
+      ll.lng === this.latlng.lng 
+    )
+    return this.latlngs.indexOf(latlng)
   }
 
   // 🍂method getLastIndex(): int
@@ -815,7 +819,11 @@ export class MiddleMarker extends Marker {
   }
 
   index() {
-    return this.latlngs.indexOf(this.right.latlng)
+    const latlng = this.latlngs.find(ll => 
+      ll.lat === this.right.latlng.lat &&
+      ll.lng === this.right.latlng.lng 
+    )
+    return this.latlngs.indexOf(latlng)
   }
 }
 
